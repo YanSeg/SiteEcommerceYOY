@@ -22,13 +22,13 @@ use App\Http\Controllers\ProductController;
 // Route::get('/', 'HomeController@index');
  // return view('welcome');
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'show']);
 
-Route::get('/cart', [CarController::class, 'index']);
+Route::get('/cart', [CartController::class, 'show']);
 
 
-Route::get('/product', [ProductController::class, 'index']); 
+Route::get('/product', [ProductController::class, 'show']); 
 
-Route::get('/product/{id}', [ProductController::class, 'ficheProduit']); 
+Route::get('/product/{id}', [ProductController::class, 'showId']); 
 
 
