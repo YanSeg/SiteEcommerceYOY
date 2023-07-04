@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,19 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return "hey coucou  <strong>super comme exercice!</strong>";
-});
+// Deux manières pour donner la route du controller
+// Route::get('/', 'App\Http\Controllers\HomeController\HomeController@index');
+// Route::get('/', 'HomeController@index');
+ // return view('welcome');
 
-Route::get('/product', function () {
-    return "Liste des produits";
-});
-Route::get('/product/{id}', function () {
-    return "Fiche du produit {id}";
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/cart', function () {
+Route::get('/cart', [CarController::class, 'index']);
 
-    return "Panier";
-});
+
+Route::get('/product', [ProductController::class, 'index']); 
+
+Route::get('/product/{id}', [ProductController::class, 'ficheProduit']); 
+
+
